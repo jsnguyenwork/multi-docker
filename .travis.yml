@@ -9,10 +9,10 @@ script:
   - docker run jsnguyenwork/react-test npm test -- --coverage
 
 after_success:
-  - docker built -t jsnguyenwork/multi-client ./client
-  - docker built -t jsnguyenwork/multi-nginx ./nginx
-  - docker built -t jsnguyenwork/multi-server ./server
-  - docker built -t jsnguyenwork/multi-worker ./worker
+  - docker build -t jsnguyenwork/multi-client ./client
+  - docker build -t jsnguyenwork/multi-nginx ./nginx
+  - docker build -t jsnguyenwork/multi-server ./server
+  - docker build -t jsnguyenwork/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
